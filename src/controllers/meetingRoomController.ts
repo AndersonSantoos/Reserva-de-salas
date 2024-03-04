@@ -7,7 +7,8 @@ async function createRoomController(req: Request, res: Response): Promise<void> 
         const room = await createRoom(nomeSala, capacidade, ocupada, horariosOcupados, equipamentos);
         res.status(201).json(room);
     } catch (error: any) {
-        res.status(500).json({ message: error.message });
+        console.error(error);
+        res.status(500).json({ message: 'Erro interno do servidor' });
     }
 }
 
@@ -50,7 +51,7 @@ async function deleteRoomController(req: Request, res: Response): Promise<void> 
         const { id } = req.params;
         await deleteRoom(Number(id));
         res.status(204).send();
-    } catch (error: any) {
+    } catch (error:any) {
         res.status(500).json({ message: error.message });
     }
 }

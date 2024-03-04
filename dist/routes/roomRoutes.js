@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const meetingRoomController_1 = require("../controllers/meetingRoomController");
 const router = express_1.default.Router();
 // Rota para criar uma nova sala
-router.post('/rooms', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try {
         await (0, meetingRoomController_1.createRoomController)(req, res);
     }
@@ -50,9 +50,5 @@ router.delete('/rooms/:id', async (req, res, next) => {
     catch (error) {
         next(error); // Passa o erro para o próximo middleware de tratamento de erros
     }
-});
-// Middleware para tratamento de erros
-router.use((error, req, res, next) => {
-    res.status(error.status || 500).json({ message: error.message || 'Ocorreu um erro inesperado.' });
 });
 exports.default = router;

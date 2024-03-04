@@ -49,22 +49,30 @@ Room.init(
         },
         nomeSala: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
         },
         capacidade: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                min: 1
+            }
         },
         ocupada: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
         },
         horariosOcupados: {
-            type: DataTypes.ARRAY(DataTypes.STRING),
+            type: DataTypes.JSON,
+            allowNull: false,
             defaultValue: []
         },
         equipamentos: {
-            type: DataTypes.ARRAY(DataTypes.STRING),
+            type: DataTypes.JSON,
+            allowNull: false,
             defaultValue: []
         }
     },

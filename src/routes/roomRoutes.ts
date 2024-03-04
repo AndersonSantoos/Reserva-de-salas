@@ -4,7 +4,7 @@ import { createRoomController, getAllRoomsController, getRoomByIdController, upd
 const router = express.Router();
 
 // Rota para criar uma nova sala
-router.post('/rooms', async (req: Request, res: Response, next: NextFunction) => {
+router.post('/', async (req: Request, res: Response, next: NextFunction) => {
     try {
         await createRoomController(req, res);
     } catch (error) {
@@ -46,11 +46,6 @@ router.delete('/rooms/:id', async (req: Request, res: Response, next: NextFuncti
     } catch (error) {
         next(error); // Passa o erro para o próximo middleware de tratamento de erros
     }
-});
-
-// Middleware para tratamento de erros
-router.use((error: any, req: Request, res: Response, next: NextFunction) => {
-    res.status(error.status || 500).json({ message: error.message || 'Ocorreu um erro inesperado.' });
 });
 
 export default router;

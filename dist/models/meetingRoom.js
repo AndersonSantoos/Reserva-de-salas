@@ -32,22 +32,30 @@ Room.init({
     },
     nomeSala: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
     },
     capacidade: {
         type: sequelize_1.DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            min: 1
+        }
     },
     ocupada: {
         type: sequelize_1.DataTypes.BOOLEAN,
         defaultValue: false
     },
     horariosOcupados: {
-        type: sequelize_1.DataTypes.ARRAY(sequelize_1.DataTypes.STRING),
+        type: sequelize_1.DataTypes.JSON,
+        allowNull: false,
         defaultValue: []
     },
     equipamentos: {
-        type: sequelize_1.DataTypes.ARRAY(sequelize_1.DataTypes.STRING),
+        type: sequelize_1.DataTypes.JSON,
+        allowNull: false,
         defaultValue: []
     }
 }, {
