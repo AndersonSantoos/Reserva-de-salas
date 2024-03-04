@@ -2,8 +2,8 @@ import { Room } from '../models/meetingRoom';
 
 async function createRoom(nomeSala: string, capacidade: number, ocupada: boolean, horariosOcupados: string[], equipamentos: string[]): Promise<Room> {
     try {
-        if(!nomeSala || !capacidade || !ocupada || !horariosOcupados || !equipamentos) {
-            throw new Error('Todos os campos devem ser preenchidos.')
+        if(!nomeSala.trim() || capacidade <= 0 || horariosOcupados.length === 0 || equipamentos.length === 0) {
+            throw new Error('Todos os campos devem ser preenchidos.');
         }
         const room = await Room.create({ nomeSala, capacidade, ocupada, horariosOcupados, equipamentos });
         console.log('Sala criada com sucesso.');
@@ -13,6 +13,7 @@ async function createRoom(nomeSala: string, capacidade: number, ocupada: boolean
         throw error;
     }
 }
+
 
 async function getAllRooms(): Promise<Room[]> {
     try {

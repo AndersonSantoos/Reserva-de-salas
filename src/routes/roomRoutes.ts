@@ -4,7 +4,7 @@ import { createRoomController, getAllRoomsController, getRoomByIdController, upd
 const router = express.Router();
 
 // Rota para criar uma nova sala
-router.post('/rooms', async (req: Request, res: Response, next: NextFunction) => {
+router.post('/', async (req: Request, res: Response, next: NextFunction) => {
     try {
         await createRoomController(req, res);
     } catch (error) {

@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const meetingRoomController_1 = require("../controllers/meetingRoomController");
 const router = express_1.default.Router();
 // Rota para criar uma nova sala
-router.post('/rooms', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try {
         await (0, meetingRoomController_1.createRoomController)(req, res);
     }

@@ -4,7 +4,7 @@ exports.deleteRoom = exports.updateRoom = exports.getRoomById = exports.getAllRo
 const meetingRoom_1 = require("../models/meetingRoom");
 async function createRoom(nomeSala, capacidade, ocupada, horariosOcupados, equipamentos) {
     try {
-        if (!nomeSala || !capacidade || !ocupada || !horariosOcupados || !equipamentos) {
+        if (!nomeSala.trim() || capacidade <= 0 || horariosOcupados.length === 0 || equipamentos.length === 0) {
             throw new Error('Todos os campos devem ser preenchidos.');
         }
         const room = await meetingRoom_1.Room.create({ nomeSala, capacidade, ocupada, horariosOcupados, equipamentos });
