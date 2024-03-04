@@ -48,4 +48,9 @@ router.delete('/rooms/:id', async (req: Request, res: Response, next: NextFuncti
     }
 });
 
+// Middleware para tratamento de erros
+router.use((error: any, req: Request, res: Response, next: NextFunction) => {
+    res.status(error.status || 500).json({ message: error.message || 'Ocorreu um erro inesperado.' });
+});
+
 export default router;
