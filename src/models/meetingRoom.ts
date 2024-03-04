@@ -2,7 +2,7 @@ import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '../database/dbConfig';
 
 interface RoomAttributes {
-    registration: number;
+    registration?: number;
     nomeSala: string;
     capacidade: number;
     ocupada: boolean;
