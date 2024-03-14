@@ -4,7 +4,7 @@ import { createRoomController, getAllRoomsController, getRoomByIdController, upd
 const router = express.Router();
 
 // Rota para criar uma nova sala
-router.post('/', async (req: Request, res: Response, next: NextFunction) => {
+router.post('/cadastrar', async (req: Request, res: Response, next: NextFunction) => {
     try {
         await createRoomController(req, res);
     } catch (error) {
@@ -31,7 +31,7 @@ router.get('/rooms/:id', async (req: Request, res: Response, next: NextFunction)
 });
 
 // Rota para atualizar uma sala existente
-router.put('/rooms/:id', async (req: Request, res: Response, next: NextFunction) => {
+router.put('/editar/:id', async (req: Request, res: Response, next: NextFunction) => {
     try {
         await updateRoomController(req, res);
     } catch (error) {
@@ -40,7 +40,7 @@ router.put('/rooms/:id', async (req: Request, res: Response, next: NextFunction)
 });
 
 // Rota para excluir uma sala
-router.delete('/rooms/:id', async (req: Request, res: Response, next: NextFunction) => {
+router.delete('/deletar/:id', async (req: Request, res: Response, next: NextFunction) => {
     try {
         await deleteRoomController(req, res);
     } catch (error) {

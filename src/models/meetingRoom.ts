@@ -83,4 +83,4 @@ Room.init(
     }
 );
 
-export { Room };
+export { Room, RoomAttributes};
