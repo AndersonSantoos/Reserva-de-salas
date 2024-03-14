@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const meetingRoomController_1 = require("../controllers/meetingRoomController");
 const router = express_1.default.Router();
 // Rota para criar uma nova sala
-router.post('/', async (req, res, next) => {
+router.post('/cadastrar', async (req, res, next) => {
     try {
         await (0, meetingRoomController_1.createRoomController)(req, res);
     }
@@ -34,7 +34,7 @@ router.get('/rooms/:id', async (req, res, next) => {
     }
 });
 // Rota para atualizar uma sala existente
-router.put('/rooms/:id', async (req, res, next) => {
+router.put('/editar/:id', async (req, res, next) => {
     try {
         await (0, meetingRoomController_1.updateRoomController)(req, res);
     }
@@ -43,7 +43,7 @@ router.put('/rooms/:id', async (req, res, next) => {
     }
 });
 // Rota para excluir uma sala
-router.delete('/rooms/:id', async (req, res, next) => {
+router.delete('/deletar/:id', async (req, res, next) => {
     try {
         await (0, meetingRoomController_1.deleteRoomController)(req, res);
     }

@@ -24,6 +24,7 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.17"
+    "@types/cors": "^2.8.17",
+    "@types/flatpickr": "^3.1.2"
   }
 }

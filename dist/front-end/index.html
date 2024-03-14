@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Nova Sala</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <a href="inicio.html" class="btn btn-back">Voltar para o Início</a>
+        <div class="header">
+            <h1>Cadastrar Nova Sala</h1>
+        </div>
+        
+        <div id="roomForm">
+            <form id="roomFormElement" onsubmit="return submitRoomForm()">
+                <input type="hidden" id="roomId">
+                <div class="form-group">
+                    <label for="roomName">Nome da Sala:</label>
+                    <input type="text" id="roomName" class="input-field" placeholder="Digite o nome da sala" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomCapacity">Capacidade:</label>
+                    <input type="number" id="roomCapacity" class="input-field" placeholder="Digite a capacidade da sala" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomOccupied">Ocupada:</label>
+                    <input type="checkbox" id="roomOccupied" class="checkbox-field">
+                </div>
+                <div class="form-group">
+                    <label for="roomSchedule">Horários Ocupados:</label>
+                    <input type="text" id="roomSchedule" class="input-field" placeholder="Selecione os horários ocupados" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomEquipment">Equipamentos:</label>
+                    <input type="text" id="roomEquipment" class="input-field" placeholder="Digite os equipamentos disponíveis na sala" required>
+                </div>
+                <button class="btn" type="submit" id="submitBtn">Salvar</button>
+                <button class="btn" type="button" onclick="cancelRoomForm()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

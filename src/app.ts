@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import bodyParser from 'body-parser';
 import { sequelize } from './database/dbConfig';
 import roomRoutes from './routes/roomRoutes';
@@ -6,6 +7,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
+app.use(express.static('front-end'));
+app.use(cors());
+
 app.use('/', roomRoutes);
 app.listen(port, async () => {
   console.log(`Server is running on port ${port}`);
